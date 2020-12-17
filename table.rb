@@ -15,7 +15,7 @@ class Table
 	end
 
 	def card_names
-		cards.map {|c| c.to_s }.join " "
+		cards.map(&:to_s).join " "
 	end
 
 end
