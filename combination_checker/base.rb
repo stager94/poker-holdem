@@ -10,12 +10,11 @@ module CombinationChecker
 			def check_for_consistent_faces(cards)
 				consistent = true
 				weights = cards_sort_by_weight(cards)
-				if weights == [1,2,3,4,13]
-					true
-				else
-	 				weights.reduce {|l, r| break unless consistent &= (r-l == 1); r}
-					consistent
-				end
+				
+				return true if weights == [1,2,3,4,13]
+
+	 			weights.reduce {|l, r| break unless consistent &= (r-l == 1); r}
+				consistent
 			end
 
 			def prepare_result(type, cards, combination_weight, weight)
